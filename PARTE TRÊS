@@ -1,0 +1,12 @@
+#Aluno: Elohim Felipe Santiago da Silva
+# programação pra redes
+import requests
+
+url_a = 'https://restcountries.com/v3.1/all'
+dicio_pais = requests.get(url_a).json()
+with open("consulta.txt", "w", encoding='utf-8') as aqv:
+    for dicio in dicio_pais:
+        for i in dicio.values():
+            aqv.write(str(i))
+        aqv.write("\n")
+        
