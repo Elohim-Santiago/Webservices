@@ -6,6 +6,7 @@ import requests
 
 print("Digite duas datas no formato dd-mm-aaaa, elas irão representar um período.")
 
+
 data_i = input("Data inicial: ")
 data_f = input("Data final: ")
 
