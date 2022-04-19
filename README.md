@@ -1,0 +1,29 @@
+# Webservices
+
+# Aluno: Elohim Felipe Santiago da Silva
+import requests 
+
+print("Digite duas datas no formato dd-mm-aaaa, elas irão representar um período.")
+
+data_i = input("Data inicial: ")
+data_f = input("Data final: ")
+
+url = "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?@dataInicial=%27"+ data_i +"%27&@dataFinalCotacao=%27"+ data_f +"%27&$format=json" 
+
+dados = requests.get(url).json()
+
+datas = dados["value"]
+
+with open("arquivo.txt", "w") as aqv:
+    for dado in datas:
+        ciclo = 0
+        for x in dado.values():
+            if ciclo >= 2:
+                aqv.write(str(x)[0:10])
+                aqv.write(";")
+                aqv.write(str(x)[11:len(x)])
+            else:
+                aqv.write(str(x))
+                aqv.write(";")
+                ciclo = ciclo + 1
+        aqv.write("\n")
