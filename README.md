@@ -3,6 +3,7 @@
 # Aluno: Elohim Felipe Santiago da Silva
 import requests 
 
+
 print("Digite duas datas no formato dd-mm-aaaa, elas irão representar um período.")
 
 data_i = input("Data inicial: ")
