@@ -1,0 +1,17 @@
+# Aluno: Elohim Felipe Santiago da Silva
+#projeto 02
+#programação pra redes[
+
+
+import requests
+
+data_dia = input("Digite a data no formato AAAA-MM-DD.\n")
+
+url_a= 'https://apitempo.inmet.gov.br/condicao/capitais/' + data_dia
+dicio_tempo = requests.get(url_a).json()
+
+with open("consulta.txt", "w") as aqv:
+    for dicio in dicio_tempo:
+        for valor in dicio.values():
+            aqv.write(valor+";")
+        aqv.write("\n")
